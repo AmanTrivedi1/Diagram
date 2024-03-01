@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import {  Inter  } from "next/font/google";
 import "./globals.css";
 import ConvexClientProvider from "./ConvexClientProvider";
+import { Toaster } from "sonner";
 
 
 
@@ -21,8 +22,10 @@ export default function RootLayout({
     <html lang="en">
      
        <body className={inter.className}>
+       
          <ConvexClientProvider >
            {children}
+           <Toaster />
          </ConvexClientProvider>
         </body>
      
