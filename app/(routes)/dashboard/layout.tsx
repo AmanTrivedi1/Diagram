@@ -4,6 +4,8 @@ import { useKindeBrowserClient } from '@kinde-oss/kinde-auth-nextjs';
 import { useConvex } from 'convex/react';
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
+import SideNav from './_components/SideNav';
+import Wrapper from '@/app/_components/Wrapper';
 
 
 export default function DashboardLayout({children,}: Readonly<{ children: React.ReactNode;}>) 
@@ -25,7 +27,14 @@ export default function DashboardLayout({children,}: Readonly<{ children: React.
         }
     }
     return (
-        <div className='bg-black'>{children}</div>
+    <>
+    <Wrapper>
+        <div className=' grid grid-cols-4 '>
+            <div> <SideNav/></div>
+            <div className='grid-cols-3'>{children}</div> 
+        </div>
+    </Wrapper>    
+    </>
     );
 }
 

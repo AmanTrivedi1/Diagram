@@ -34,13 +34,13 @@ const Dashboard = () => {
   }
   return (
   <>
-        <Wrapper>
+      
           <>
-            <Button>
+            <Button className='bg-white hidden text-black hover:bg-zinc-100 hover:text-black'>
                 <LogoutLink>Logout</LogoutLink>
             </Button>
           </>
-        </Wrapper>
+    
        
   </>
   )
