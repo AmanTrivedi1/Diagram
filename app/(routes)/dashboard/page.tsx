@@ -36,10 +36,9 @@ const Dashboard = () => {
   }
   return (
   <>
-   <div className='p-8'>
+   <div className='sm:p-4 sm:ml-4'>
        <Header/>
 
-       
        <FileList/>
    </div>
   </>
