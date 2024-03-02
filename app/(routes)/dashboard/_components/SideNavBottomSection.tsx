@@ -73,23 +73,16 @@ function SideNavBottomSection({onFileCreate,totalFiles}:any) {
           </DialogClose>
         </DialogFooter>
   </DialogContent>
- 
 </Dialog>
-
-     
-      
       {/* Progress Bar  */}
       <div className='h-4 w-full bg-gray-200 rounded-full mt-5'>
-          <div className={`h-4  bg rounded-full`}
-          style={{ width: `${(totalFiles/5)*100}%` }}
-         >
+          <div className={`h-4  bg-black rounded-full`}
+          style={{ width: `${(totalFiles/5)*100}%` }}>
           </div>
       </div>
-
       <h2 className='text-[12px] mt-3'>
-        <strong>1</strong> out of <strong>5</strong> files used</h2>
+        <strong>{totalFiles}</strong> out of <strong>5</strong> files used</h2>
       <h2 className='text-[12px] mt-1'>Upgrade your plan for unlimited access.</h2>  
-
      </div>
   )
 }
