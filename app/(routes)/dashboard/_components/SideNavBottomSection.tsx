@@ -28,7 +28,7 @@ function SideNavBottomSection({onFileCreate,totalFiles}:any) {
 
   const [fileInput,setFileInput]=useState('');
   return (
-    <div className='text-black'>
+    <div className='text-black sm:mb-0 mb-20'>
 
       <Dialog>
   <DialogTrigger className='w-full' asChild>
