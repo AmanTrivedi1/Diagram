@@ -28,12 +28,12 @@ export default function DashboardLayout({children,}: Readonly<{ children: React.
     }
     return (
     <>
-    <Wrapper>
+  
         <div className=' grid grid-cols-4 '>
             <div> <SideNav/></div>
             <div className='grid-cols-3'>{children}</div> 
         </div>
-    </Wrapper>    
+   
     </>
     );
 }

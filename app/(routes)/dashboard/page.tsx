@@ -36,7 +36,7 @@ const Dashboard = () => {
   <>
       
           <>
-            <Button className='bg-white hidden text-black hover:bg-zinc-100 hover:text-black'>
+            <Button className='bg-white hidden  text-black hover:bg-zinc-100 hover:text-black'>
                 <LogoutLink>Logout</LogoutLink>
             </Button>
           </>
