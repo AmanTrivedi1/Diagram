@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Excalidraw, MainMenu, WelcomeScreen } from "@excalidraw/excalidraw";
+
 import { useMutation } from 'convex/react';
 import { api } from '@/convex/_generated/api';
 import { FILE } from '@/app/(routes)/dashboard/_components/FileList';
@@ -32,8 +33,10 @@ function Canvas({onSaveTrigger,fileId,fileData}:{onSaveTrigger:any,fileId:any,fi
             loadScene:false,
             export:false,
             toggleTheme:false
+
         }
-    }} >
+    }}
+    >
         <MainMenu>
             <MainMenu.DefaultItems.ClearCanvas/>
             <MainMenu.DefaultItems.SaveAsImage/>

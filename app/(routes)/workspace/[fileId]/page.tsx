@@ -7,6 +7,11 @@ import WorkspaceHeader from './_components/WorkspaceHeader';
 import Editor from './_components/Editor';
 import { LoaderIcon } from 'lucide-react';
 import Canvas from './_components/Canvas';
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from "@/components/ui/resizable"
 // import Canvas from '../_components/Canvas';
 
 function Workspace({params}:any) {
@@ -28,32 +33,32 @@ function Workspace({params}:any) {
   return (
     <div>
        <WorkspaceHeader onSave={()=>setTriggerSave(!triggerSave)} />
-      {/* Div for WHite board */}
-      <div className='grid gird-cols-1 border-b bottom-2 md:grid-cols-2'>
-              <div className=' h-screen'>
-                {loading ? (
-                    <div className='flex items-center flex-col   justify-center mt-40'> <LoaderIcon className='animate-spin' /> <p>Editor Loading..</p> </div>
-                ) : <Editor onSaveTrigger={triggerSave}
-                 fileId={params.fileId}
-                 fileData={fileData}
-              />}
-               
-              </div>
-               {/* Dive for canvas */}
-        <div className=' h-screen border-l border border-t-2'>
-            {loading ? (
-                 <div className='flex items-center flex-col justify-center mt-40'> <LoaderIcon className='animate-spin'  /> <p>Whiteboard Loading...</p></div>
-            ): (
-                <Canvas
+       <ResizablePanelGroup
+      direction="horizontal"
+      className="h-screen w-full"
+    >
+      <ResizablePanel defaultSize={30}>
+     
+         {loading ? <div className=' flex items-center justify-center'><LoaderIcon className='animate-spin mt-40' /> </div> : 
+         <Editor onSaveTrigger={triggerSave}
+         fileId={params.fileId}
+         fileData={fileData}/>
+         }
+    
+      </ResizablePanel>
+      <ResizableHandle withHandle />
+      <ResizablePanel defaultSize={75}>
+    
+      {loading ? <div className=' flex items-center justify-center'><LoaderIcon className='animate-spin mt-40' /> </div> : 
+             <Canvas
                 onSaveTrigger={triggerSave}
                 fileId={params.fileId}
                 fileData={fileData}
                />
-            ) }
-           
-        </div>
-      </div>
+              }
    
+      </ResizablePanel>
+    </ResizablePanelGroup>
     </div>
   )
 }

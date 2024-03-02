@@ -1,7 +1,9 @@
 "use client"
 import { Button } from '@/components/ui/button'
-import { Link, Save } from 'lucide-react'
+import {  LayoutDashboard, Save } from 'lucide-react'
+
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
 function WorkspaceHeader({onSave}:any) {
@@ -20,9 +22,9 @@ function WorkspaceHeader({onSave}:any) {
         onClick={()=>onSave()}
         > 
         <Save className='h-4 w-4' /> Save </Button>
-        <Button className='h-8 text-[12px]
-        gap-2 '>
-          Share <Link className='h-4 w-4' /> </Button>
+         <Link href="/dashboard" className='text-[12px] gap-x-2 bg-black text-white px-2 py-1 rounded-lg hover:opacity-90 flex items-center '>
+           <LayoutDashboard className='h-4 w-4 ' />   Dashboard
+         </Link>
       </div>
     </div>
   )
