@@ -87,8 +87,8 @@ function FileList() {
 </div>
     ) : (
         <div className='flex items-center flex-col justify-center mt-48'>
-          <Brush className='h-20 w-20' />
-          <p className='text-4xl font-semibold mt-2'>No file created yet</p>
+           <Image src="/empty.png" width={400} height={400}  alt="empty"  />
+          <p className='text-3xl font-semibold mt-2'>Nothing to show</p>
         </div>
 
     )}

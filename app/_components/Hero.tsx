@@ -3,26 +3,35 @@ import { cn } from "@/utils/cn";
 import { Spotlight } from "@/components/ui/Spotlight";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { LoginLink , RegisterLink } from "@kinde-oss/kinde-auth-nextjs";
+import { LoginLink , RegisterLink, useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
+import Link from "next/link";
 
 export function Hero() {
+  const {user}:any=useKindeBrowserClient();
   return (
     <>
  
-    <div className="h-[40rem] w-full  rounded-md flex md:items-center md:justify-center bg-black/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden">
+    <div className="h-[100vh] w-full  rounded-md flex md:items-center md:justify-center bg-black/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden">
       <Spotlight
         className="-top-40 left-0 md:left-60 md:-top-20"
         fill="white"
       />
       <div className="">
-              <div className="absolute top-8 md:left-20 left-10">
-                <Image src="./logo.svg" height={100} width={100} alt="Image" />
+              <div className="absolute text-white font-semibold flex md:top-8 top-4 md:left-20 left-4">
+                <Image src="/pnglogo.png" height={40} width={40} alt="Image" />
+                <h1 className="ml-2">Diagram.io</h1>
               </div>
-              <div className="absolute top-4 md:right-20 right-10">
+
+            {
+              user ? <Link href="/dashboard"><div className="absolute md:top-4 top-2 md:right-20 right-4 max-w-40 truncate"><h1 className="text-white md:text-sm text-xs">{user?.given_name}/Dashboard</h1></div></Link>  :  
+              <div className="absolute md:top-4 top-2 md:right-20 right-4">
                 <Button className="bg-zinc-200 hover:bg-zinc-100 text-black hover:text-black">
                    <LoginLink>Try now</LoginLink>
                 </Button>
               </div>
+            }
+
+              
              
         <div className=" p-4 max-w-7xl  mx-auto relative z-10  w-full sm:pt-20 pt-32 md:pt-0">
           <div className="flex items-center justify-center">
@@ -37,11 +46,14 @@ export function Hero() {
                and much more. Say goodbye to scattered notes and disjointed planning – our tool empowers you
                to consolidate your ideas into cohesive, professional documents. 
             </p>
-            <div className="flex items-center  flex-col justify-center mt-4">
-              <Button className="bg-zinc-200 hover:bg-zinc-100 text-black hover:text-black ">
-                <RegisterLink>Signup Now</RegisterLink>
-              </Button>
-            </div>
+            {user ? <div className="text-lg flex items-center justify-center mt-4 text-orange-500"> <span className="font-semibold mr-2 text-white">Wellcome:</span> <span className="text-[#EF305C]">{user?.given_name}</span><span className="text-[#2F9BFD]"> {user?.family_name}</span>  </div> : 
+             <div className="flex items-center  flex-col justify-center mt-4">
+             <Button className="bg-zinc-200 hover:bg-zinc-100 text-black hover:text-black ">
+               <RegisterLink>Signup Now</RegisterLink>
+             </Button>
+           </div>
+            }
+           
        </div>
       </div>
    

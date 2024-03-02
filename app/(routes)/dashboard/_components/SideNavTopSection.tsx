@@ -1,4 +1,4 @@
-import { ChevronDown, LayoutGridIcon, LogOut, Settings, User, Users } from 'lucide-react'
+import { ChevronDown, Home, LayoutGridIcon, LogOut, Settings, User, Users } from 'lucide-react'
 import Image from 'next/image'
 import React, { useContext, useEffect, useState } from 'react'
 import {
@@ -23,7 +23,6 @@ export interface TEAM{
 const SideNavTopSection = ({user,setActiveTeamInfo}:any) => {
 
   const router = useRouter();
-  console.log(user)
   const menu = [
     {
       id:1,
@@ -33,14 +32,11 @@ const SideNavTopSection = ({user,setActiveTeamInfo}:any) => {
     },
     {
       id:2,
-      name:"Settings" ,
-      path:"/teams/create",
-      icon:Settings
-    }
+      name:"Go home" ,
+      path:"/",
+      icon:Home
+    },
   ] 
-
-
-
 
   const convex = useConvex();
   const [activeTeam , setActiveTeam] = useState <TEAM | undefined> ();
@@ -68,7 +64,7 @@ const SideNavTopSection = ({user,setActiveTeamInfo}:any) => {
        user && getTeamList();
   }, [user])
 
-
+console.log(user)
   return (
     <div>
        <Popover>
@@ -132,7 +128,6 @@ const SideNavTopSection = ({user,setActiveTeamInfo}:any) => {
                 </div>
              </PopoverContent>
          </Popover>
-
       {/* All file button */}
       <Button variant="outline" className='w-full mt-8 justify-start gap-2 font-semibold  text-black'>
         <LayoutGridIcon className='h-5 w-5'/> All FIles
