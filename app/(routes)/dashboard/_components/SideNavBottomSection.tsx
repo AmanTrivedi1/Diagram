@@ -73,7 +73,7 @@ function SideNavBottomSection({onFileCreate,totalFiles}:any) {
       <DrawerTitle>Why you can not create more than 5 files ?</DrawerTitle>
   <DrawerDescription className=''> <span className='text-red-400 font-semibold'>Notice</span>: You have reached the maximum file limit allowed for this service.
            As a free user, you can create up to 5 files. 
-           If you need to create more files, please delete some existing files to make room.
+           If you need to create more files, please clear some existing files to reuse them.
            Thank you for using our service and understanding the limitations.
  </DrawerDescription>
     </DrawerHeader>
