@@ -56,7 +56,7 @@ const SideNav = () => {
   return (
     <>
     <div className='text-zinc-100 h-screen fixed md:w-80 w-72 border-r p-6 gap-3 border-zinc-300 flex-col flex'>
-      <div className='flex-1 sm:mb-0 mb-20'>
+      <div className='flex-1 '>
         <SideNavTopSection user={user}
          setActiveTeamInfo={(activeTeam:TEAM)=>setActiveTeam(activeTeam)}
         />
